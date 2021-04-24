@@ -3,19 +3,20 @@ import React, { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Row, Col } from "react-bootstrap";
 
+import Moment from "react-moment";
+
 export const AirlineList = (props) => {
   // const airlineLists = props.listings.map(item => {
   //     return <AirlineList listItem={item}></AirlineList>;
   // });
   const {
     AirItineraryPricingInfo,
-    DirectionInd,
     OriginDestinationOptions,
-    ValidatingAirlineCode,
     AirLineName,
   } = props.listItem;
   const flightInfo = OriginDestinationOptions[0]["FlightSegments"];
-  const airFare = AirItineraryPricingInfo['ItinTotalFare']['TotalFare'];
+  const flightInfoLength = flightInfo.length;
+  const airFare = AirItineraryPricingInfo["ItinTotalFare"]["TotalFare"];
 
   //   useEffect(() => {
   //       console.log(flightInfo);
@@ -23,26 +24,39 @@ export const AirlineList = (props) => {
 
   return (
     <Row className="m-3 bg-info">
-      <Col xs={4}>{AirLineName}</Col>
-      <Col xs={2}>
-        <div>{flightInfo[0]["DepartureDateTime"]}</div>
-        <div>{flightInfo[0]["DepartureAirportLocationCode"]}</div>
-        <div>{flightInfo[0]["DepartureDateTime"]}</div>
-      </Col>
-      <Col xs={2}>
-        <div>Time</div>
-        <div>{flightInfo.length} Stops</div>
-      </Col>
-      <Col xs={2}>
-        <div>{flightInfo[flightInfo.length - 1]["ArrivalDateTime"]}</div>
+      <Col xs={4} className="text-center">{AirLineName}</Col>
+      <Col xs={2} className="text-right">
         <div>
-          {flightInfo[flightInfo.length - 1]["ArrivalAirportLocationCode"]}
+          <Moment format="HH:mm">{flightInfo[0]["DepartureDateTime"]}</Moment>
         </div>
-        <div>{flightInfo[flightInfo.length - 1]["ArrivalDateTime"]}</div>
+        <div>{flightInfo[0]["DepartureAirportLocationCode"]}</div>
+        <div>
+          <Moment format="DD MMMM YYYY">
+            {flightInfo[0]["DepartureDateTime"]}
+          </Moment>
+        </div>
       </Col>
-      <Col xs={2} className="bg-secondary">
-          <div>Book Flight</div>
-          <div>{airFare.CurrencyCode + " " + airFare.Amount}</div>
+      <Col xs={2} className="text-center">
+        <div>Time</div>
+        <div><Moment duration={flightInfo[0]["DepartureDateTime"]}
+                    date={flightInfo[flightInfoLength - 1]["ArrivalDateTime"]}
+            /></div>
+        <div>{flightInfoLength} Stops</div>
+      </Col>
+      <Col xs={2}>
+        <div>
+          <Moment format="HH:mm">{flightInfo[flightInfoLength - 1]["ArrivalDateTime"]}</Moment>
+        </div>
+        <div>{flightInfo[flightInfoLength - 1]["ArrivalAirportLocationCode"]}</div>
+        <div>
+          <Moment format="DD MMMM YYYY">
+            {flightInfo[flightInfoLength - 1]["ArrivalDateTime"]}
+          </Moment>
+        </div>
+      </Col>
+      <Col xs={2} className="bg-secondary text-center">
+        <div>Book Flight</div>
+        <div>{airFare.CurrencyCode + " " + airFare.Amount}</div>
       </Col>
     </Row>
   );
