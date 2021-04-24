@@ -13,9 +13,9 @@ import airlines from "../../static/json/airlines.json";
 import listing from "../../static/json/result.json";
 
 export const Listing = () => {
-  const [actualListing, setActualListing] = useState(0);
-  const [listings, setListings] = useState(0);
-  const [filterList, setFilterList] = useState(0);
+  const [actualListing, setActualListing] = useState({});
+  const [listings, setListings] = useState({});
+  const [filterList, setFilterList] = useState({});
 
   useEffect(() => {
     const airObj = {};
@@ -31,7 +31,7 @@ export const Listing = () => {
     setActualListing(listObj);
     setListings(listObj);
 
-    const filterObj = [];
+    const filterObj = {};
     listObj.forEach((item) => {
       filterObj[item["ValidatingAirlineCode"]] = { name: item["AirLineName"] };
     });
