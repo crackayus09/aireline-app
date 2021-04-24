@@ -4,7 +4,7 @@ import { Row, Col, Card } from "react-bootstrap";
 
 export const LoginContainer = (props) => {
   return (
-    <Row className="justify-content-md-center">
+    <Row className="justify-content-center">
       <Col md="auto">
         <Card>
           <Card.Body>{props.children}</Card.Body>

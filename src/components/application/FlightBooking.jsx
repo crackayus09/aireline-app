@@ -12,8 +12,8 @@ export const FlightBooking = (props) => {
   return (
     <>
       <CommonContainer ptext="Success">
-        <Row className="justify-content-md-center">
-          <Col xs="4" className="text-center">
+        <Row className="justify-content-center mt-2">
+          <Col xs="12" md="6" lg="4" className="text-center">
             Your flight from{" "}
             <b>{flightInfo[0]["DepartureAirportLocationCode"]}</b> -{" "}
             <b>
@@ -28,8 +28,8 @@ export const FlightBooking = (props) => {
             is confirmed.
           </Col>
         </Row>
-        <Row className="justify-content-md-center mt-5">
-          <Col xs="4" className="text-center">
+        <Row className="justify-content-center mt-5">
+          <Col xs="12" md="6" lg="4" className="text-center">
             <Link to="/">
               <Button variant="primary">Go To HomePage</Button>
             </Link>
