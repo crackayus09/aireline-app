@@ -1,10 +1,8 @@
 import React from "react";
 
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Form, Button } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 
-import { CommonNav } from "../commons/CommonNav";
-import { BrandBanner } from "../commons/BrandBanner";
+import { CommonContainer } from "../commons/CommonContainer";
 import { LoginContainer } from "./LoginContainer";
 import { useHistory } from "react-router-dom";
 
@@ -26,9 +24,7 @@ export const LoginPage = () => {
 
   return (
     <>
-      <CommonNav />
-      <Container fluid>
-        <BrandBanner />
+      <CommonContainer>
         <LoginContainer>
           <Form className="text-center" onSubmit={handleSubmit}>
             <Form.Group controlId="formBasicEmail">
@@ -51,7 +47,7 @@ export const LoginPage = () => {
             </Button>
           </Form>
         </LoginContainer>
-      </Container>
+      </CommonContainer>
     </>
   );
 };

@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 
-import { CommonNav } from "../commons/CommonNav";
-import { BrandBanner } from "../commons/BrandBanner";
+import { CommonContainer } from "../commons/CommonContainer";
 
 import { AirlinesFilter } from "./AirlinesFilter";
 import { AirlinesListing } from "./AirlinesListing";
@@ -51,9 +49,7 @@ export const Listing = () => {
 
   return (
     <>
-      <CommonNav />
-      <Container fluid>
-        <BrandBanner ptext="Listing" />
+      <CommonContainer ptext="Listing">
         <Row>
           <Col xs={3}>
             <AirlinesFilter
@@ -65,7 +61,7 @@ export const Listing = () => {
             <AirlinesListing listings={listings} />
           </Col>
         </Row>
-      </Container>
+      </CommonContainer>
     </>
   );
 };

@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
-import "bootstrap/dist/css/bootstrap.min.css";
 import { Row, Col } from "react-bootstrap";
 
 import Moment from "react-moment";
+import { Redirect } from "react-router-dom";
 
 export const AirlineList = (props) => {
   const {
@@ -15,7 +15,29 @@ export const AirlineList = (props) => {
   const flightInfoLength = flightInfo.length;
   const airFare = AirItineraryPricingInfo["ItinTotalFare"]["TotalFare"];
 
-  const handleBooking = () => {};
+  const [bookedItem, setBookedItem] = useState({
+    trigger: false,
+    item: {},
+  });
+
+  const handleBooking = (item) => {
+    setBookedItem({
+      trigger: true,
+      item,
+    });
+  };
+
+  if (bookedItem.trigger && Object.keys(bookedItem.item).length) {
+    const { item } = bookedItem;
+    return (
+      <Redirect
+        to={{
+          pathname: "/booking",
+          state: { item },
+        }}
+      />
+    );
+  }
 
   return (
     <Row className="m-3 bg-info">
@@ -58,7 +80,13 @@ export const AirlineList = (props) => {
           </Moment>
         </div>
       </Col>
-      <Col xs={2} className="bg-secondary text-center" onClick={handleBooking}>
+      <Col
+        xs={2}
+        className="bg-secondary text-center"
+        onClick={() => {
+          handleBooking({ flightInfo, flightInfoLength });
+        }}
+      >
         <div>Book Flight</div>
         <div>{airFare.CurrencyCode + " " + airFare.Amount}</div>
       </Col>

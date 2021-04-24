@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 
-import "bootstrap/dist/css/bootstrap.min.css";
 import { ListGroup } from "react-bootstrap";
 
 export const AirlinesFilter = (props) => {
   const listOptions = [];
   const { filterList } = props;
-  const [filterOptions, setFilterOptions] = useState(0);
+  const [filterOptions, setFilterOptions] = useState({});
 
   useEffect(() => {
     for (const filter in filterList) {
