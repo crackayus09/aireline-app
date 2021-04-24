@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Row, Col } from "react-bootstrap";
@@ -6,9 +6,6 @@ import { Row, Col } from "react-bootstrap";
 import Moment from "react-moment";
 
 export const AirlineList = (props) => {
-  // const airlineLists = props.listings.map(item => {
-  //     return <AirlineList listItem={item}></AirlineList>;
-  // });
   const {
     AirItineraryPricingInfo,
     OriginDestinationOptions,
@@ -17,10 +14,6 @@ export const AirlineList = (props) => {
   const flightInfo = OriginDestinationOptions[0]["FlightSegments"];
   const flightInfoLength = flightInfo.length;
   const airFare = AirItineraryPricingInfo["ItinTotalFare"]["TotalFare"];
-
-  //   useEffect(() => {
-  //       console.log(flightInfo);
-  //   }, []);
 
   return (
     <Row className="m-3 bg-info">

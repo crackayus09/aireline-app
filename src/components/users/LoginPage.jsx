@@ -21,7 +21,6 @@ export const LoginPage = () => {
     const pwd = pwdRef.current.value;
 
     if (userName === 'admin@demo.com' && pwd === 'admin') {
-      console.log("Yes");
       history.push('/listing');
     }
 

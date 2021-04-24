@@ -33,12 +33,21 @@ export const Listing = () => {
 
     const filterObj = [];
     listObj.forEach((item) => {
-      filterObj[item["ValidatingAirlineCode"]] = item["AirLineName"];
+      filterObj[item["ValidatingAirlineCode"]] = {"name": item["AirLineName"]};
     });
     setFilterList(filterObj);
   }, []);
 
-  const filterHandler = () => {};
+  const filterHandler = options => {
+      const primeListing = { ...actualListing};
+      for (const item in primeListing) {
+          const itemCode = primeListing[item].ValidatingAirlineCode;
+          if (!options[itemCode].status) {
+            delete primeListing[item];
+          }
+      }
+      setListings(primeListing);
+  };
 
   return (
     <>
