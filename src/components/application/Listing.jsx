@@ -23,16 +23,14 @@ export const Listing = () => {
     });
 
     const listObj = listing["Data"]["PricedItineraries"];
+    const filterObj = {};
     listObj.forEach((data) => {
-      data["AirLineName"] = airObj[data["ValidatingAirlineCode"]];
+      const airlineName = airObj[data["ValidatingAirlineCode"]];
+      data["AirLineName"] = airlineName;
+      filterObj[data["ValidatingAirlineCode"]] = { name: airlineName };
     });
     setActualListing(listObj);
     setListings(listObj);
-
-    const filterObj = {};
-    listObj.forEach((item) => {
-      filterObj[item["ValidatingAirlineCode"]] = { name: item["AirLineName"] };
-    });
     setFilterList(filterObj);
   }, []);
 
