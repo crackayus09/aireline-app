@@ -7,8 +7,7 @@ import { CommonContainer } from "../commons/CommonContainer";
 import { AirlinesFilter } from "./AirlinesFilter";
 import { AirlinesListing } from "./AirlinesListing";
 
-import airlines from "../../static/json/airlines.json";
-import listing from "../../static/json/result.json";
+import {airlines, listing} from "../../static/json";
 
 export const Listing = () => {
   const [actualListing, setActualListing] = useState({});

@@ -3,7 +3,7 @@ import React from "react";
 import { Form, Button } from "react-bootstrap";
 
 import { CommonContainer } from "../commons/CommonContainer";
-import { LoginContainer } from "./LoginContainer";
+import { LoginContainer } from "./";
 import { useHistory } from "react-router-dom";
 
 export const LoginPage = () => {
