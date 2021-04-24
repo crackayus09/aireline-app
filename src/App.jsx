@@ -1,8 +1,7 @@
 import { BrowserRouter, Route } from "react-router-dom";
 
 import { LoginPage } from "./components/users";
-import { Listing } from "./components/application/Listing";
-import { FlightBooking } from "./components/application/FlightBooking";
+import { Listing, FlightBooking } from "./components/application";
 
 function App() {
   return (

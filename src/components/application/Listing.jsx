@@ -2,10 +2,9 @@ import React, { useState, useEffect } from "react";
 
 import { Col, Row } from "react-bootstrap";
 
-import { CommonContainer } from "../commons/CommonContainer";
+import { CommonContainer } from "../commons";
 
-import { AirlinesFilter } from "./AirlinesFilter";
-import { AirlinesListing } from "./AirlinesListing";
+import { AirlinesFilter, AirlinesListing } from ".";
 
 import {airlines, listing} from "../../static/json";
 
@@ -48,13 +47,13 @@ export const Listing = () => {
     <>
       <CommonContainer ptext="Listing">
         <Row>
-          <Col xs={3}>
+          <Col xs="12" md="3">
             <AirlinesFilter
               filterList={filterList}
               filterHandler={filterHandler}
             />
           </Col>
-          <Col xs={9}>
+          <Col xs="12" md="9">
             <AirlinesListing listings={listings} />
           </Col>
         </Row>

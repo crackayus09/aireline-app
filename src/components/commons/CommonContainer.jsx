@@ -1,7 +1,6 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import { CommonNav } from "./CommonNav";
-import { BrandBanner } from "./BrandBanner";
+import { CommonNav, BrandBanner } from ".";
 
 export const CommonContainer = (props) => {
   return (

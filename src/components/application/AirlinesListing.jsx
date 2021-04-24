@@ -1,6 +1,6 @@
 import React from "react";
 
-import { AirlineList } from "./AirlineList";
+import { AirlineList } from ".";
 
 export const AirlinesListing = (props) => {
   const { listings } = props;

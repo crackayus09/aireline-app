@@ -2,8 +2,8 @@ import React from "react";
 
 import { Form, Button } from "react-bootstrap";
 
-import { CommonContainer } from "../commons/CommonContainer";
-import { LoginContainer } from "./";
+import { CommonContainer } from "../commons";
+import { LoginContainer } from ".";
 import { useHistory } from "react-router-dom";
 
 export const LoginPage = () => {

@@ -4,7 +4,7 @@ import { Col, Row, Button } from "react-bootstrap";
 import Moment from "react-moment";
 import { Link } from "react-router-dom";
 
-import { CommonContainer } from "../commons/CommonContainer";
+import { CommonContainer } from "../commons";
 
 export const FlightBooking = (props) => {
   const { flightInfo, flightInfoLength } = props.location.state.item;
