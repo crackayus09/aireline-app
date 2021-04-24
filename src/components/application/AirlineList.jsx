@@ -15,9 +15,13 @@ export const AirlineList = (props) => {
   const flightInfoLength = flightInfo.length;
   const airFare = AirItineraryPricingInfo["ItinTotalFare"]["TotalFare"];
 
+  const handleBooking = () => {};
+
   return (
     <Row className="m-3 bg-info">
-      <Col xs={4} className="text-center">{AirLineName}</Col>
+      <Col xs={4} className="text-center">
+        {AirLineName}
+      </Col>
       <Col xs={2} className="text-right">
         <div>
           <Moment format="HH:mm">{flightInfo[0]["DepartureDateTime"]}</Moment>
@@ -31,23 +35,30 @@ export const AirlineList = (props) => {
       </Col>
       <Col xs={2} className="text-center">
         <div>Time</div>
-        <div><Moment duration={flightInfo[0]["DepartureDateTime"]}
-                    date={flightInfo[flightInfoLength - 1]["ArrivalDateTime"]}
-            /></div>
+        <div>
+          <Moment
+            duration={flightInfo[0]["DepartureDateTime"]}
+            date={flightInfo[flightInfoLength - 1]["ArrivalDateTime"]}
+          />
+        </div>
         <div>{flightInfoLength} Stops</div>
       </Col>
       <Col xs={2}>
         <div>
-          <Moment format="HH:mm">{flightInfo[flightInfoLength - 1]["ArrivalDateTime"]}</Moment>
+          <Moment format="HH:mm">
+            {flightInfo[flightInfoLength - 1]["ArrivalDateTime"]}
+          </Moment>
         </div>
-        <div>{flightInfo[flightInfoLength - 1]["ArrivalAirportLocationCode"]}</div>
+        <div>
+          {flightInfo[flightInfoLength - 1]["ArrivalAirportLocationCode"]}
+        </div>
         <div>
           <Moment format="DD MMMM YYYY">
             {flightInfo[flightInfoLength - 1]["ArrivalDateTime"]}
           </Moment>
         </div>
       </Col>
-      <Col xs={2} className="bg-secondary text-center">
+      <Col xs={2} className="bg-secondary text-center" onClick={handleBooking}>
         <div>Book Flight</div>
         <div>{airFare.CurrencyCode + " " + airFare.Amount}</div>
       </Col>

@@ -18,8 +18,7 @@ export const CommonNav = () => {
             height="30"
             className="d-inline-block align-top text-white"
           />
-          {"   "}
-          X Airlines
+          {"   "}X Airlines
         </Navbar.Brand>
       </Link>
     </Navbar>

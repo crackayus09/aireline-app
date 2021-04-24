@@ -4,7 +4,6 @@ import { LoginPage } from "./components/users/LoginPage";
 import { Listing } from "./components/application/Listing";
 
 function App() {
-
   return (
     <BrowserRouter>
       <Route path="/" exact component={LoginPage}></Route>

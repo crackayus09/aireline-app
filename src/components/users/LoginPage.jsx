@@ -9,7 +9,6 @@ import { LoginContainer } from "./LoginContainer";
 import { useHistory } from "react-router-dom";
 
 export const LoginPage = () => {
-
   const userRef = React.useRef();
   const pwdRef = React.useRef();
   const history = useHistory();
@@ -20,10 +19,9 @@ export const LoginPage = () => {
     const userName = userRef.current.value;
     const pwd = pwdRef.current.value;
 
-    if (userName === 'admin@demo.com' && pwd === 'admin') {
-      history.push('/listing');
+    if (userName === "admin@demo.com" && pwd === "admin") {
+      history.push("/listing");
     }
-
   };
 
   return (
@@ -34,11 +32,19 @@ export const LoginPage = () => {
         <LoginContainer>
           <Form className="text-center" onSubmit={handleSubmit}>
             <Form.Group controlId="formBasicEmail">
-              <Form.Control type="email" placeholder="Enter email" ref={userRef}/>
+              <Form.Control
+                type="email"
+                placeholder="Enter email"
+                ref={userRef}
+              />
             </Form.Group>
 
             <Form.Group controlId="formBasicPassword">
-              <Form.Control type="password" placeholder="Password" ref={pwdRef}/>
+              <Form.Control
+                type="password"
+                placeholder="Password"
+                ref={pwdRef}
+              />
             </Form.Group>
             <Button variant="primary" type="submit">
               Submit
