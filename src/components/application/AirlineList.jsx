@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
 import { Row, Col } from "react-bootstrap";
-
-import Moment from "react-moment";
 import { Redirect } from "react-router-dom";
+
+import { TimingList, DifferenceList } from ".";
 
 export const AirlineList = (props) => {
   const {
@@ -41,54 +41,65 @@ export const AirlineList = (props) => {
 
   return (
     <Row className="m-3 bg-info">
-      <Col xs={4} className="text-center">
+      <Col xs="3" className="text-center m-auto">
         {AirLineName}
       </Col>
-      <Col xs={2} className="text-right">
-        <div>
-          <Moment format="HH:mm">{flightInfo[0]["DepartureDateTime"]}</Moment>
-        </div>
-        <div>{flightInfo[0]["DepartureAirportLocationCode"]}</div>
-        <div>
-          <Moment format="DD MMMM YYYY">
-            {flightInfo[0]["DepartureDateTime"]}
-          </Moment>
-        </div>
+      <Col md="2" className="d-none d-md-block m-auto text-right">
+        <TimingList
+          time={flightInfo[0]["DepartureDateTime"]}
+          location={flightInfo[0]["DepartureAirportLocationCode"]}
+        />
       </Col>
-      <Col xs={2} className="text-center">
-        <div>Time</div>
+      <Col md="3" className="d-none d-md-block m-auto text-center">
+        <DifferenceList
+          startTime={flightInfo[0]["DepartureDateTime"]}
+          endTime={flightInfo[flightInfoLength - 1]["ArrivalDateTime"]}
+          stops={flightInfoLength}
+        />
+      </Col>
+      <Col md="2" className="d-none d-md-block m-auto">
+        <TimingList
+          time={flightInfo[flightInfoLength - 1]["DepartureDateTime"]}
+          location={
+            flightInfo[flightInfoLength - 1]["DepartureAirportLocationCode"]
+          }
+        />
+      </Col>
+      <Col xs="6" className="d-block d-md-none m-auto text-center">
         <div>
-          <Moment
-            duration={flightInfo[0]["DepartureDateTime"]}
-            date={flightInfo[flightInfoLength - 1]["ArrivalDateTime"]}
+          <TimingList
+            time={flightInfo[0]["DepartureDateTime"]}
+            location={flightInfo[0]["DepartureAirportLocationCode"]}
           />
         </div>
-        <div>{flightInfoLength} Stops</div>
-      </Col>
-      <Col xs={2}>
-        <div>
-          <Moment format="HH:mm">
-            {flightInfo[flightInfoLength - 1]["ArrivalDateTime"]}
-          </Moment>
+        <div className="mt-2">
+          <DifferenceList
+            startTime={flightInfo[0]["DepartureDateTime"]}
+            endTime={flightInfo[flightInfoLength - 1]["ArrivalDateTime"]}
+            stops={flightInfoLength}
+          />
         </div>
-        <div>
-          {flightInfo[flightInfoLength - 1]["ArrivalAirportLocationCode"]}
-        </div>
-        <div>
-          <Moment format="DD MMMM YYYY">
-            {flightInfo[flightInfoLength - 1]["ArrivalDateTime"]}
-          </Moment>
+        <div className="mt-2">
+          <TimingList
+            time={flightInfo[flightInfoLength - 1]["DepartureDateTime"]}
+            location={
+              flightInfo[flightInfoLength - 1]["DepartureAirportLocationCode"]
+            }
+          />
         </div>
       </Col>
       <Col
-        xs={2}
-        className="bg-secondary text-center"
+        xs="3"
+        md="2"
+        className="bg-secondary text-center d-flex"
         onClick={() => {
           handleBooking({ flightInfo, flightInfoLength });
         }}
       >
-        <div>Book Flight</div>
-        <div>{airFare.CurrencyCode + " " + airFare.Amount}</div>
+        <div className="m-auto">
+          <div>Book Flight</div>
+          <div>{airFare.CurrencyCode + " " + airFare.Amount}</div>
+        </div>
       </Col>
     </Row>
   );

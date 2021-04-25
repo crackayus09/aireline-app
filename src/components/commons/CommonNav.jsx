@@ -7,7 +7,7 @@ import logo from "../../static/img/plane.png";
 
 export const CommonNav = () => {
   return (
-    <Navbar bg="danger" variant="dark">
+    <Navbar bg="danger" variant="dark" sticky="top">
       <Link to="/">
         <Navbar.Brand>
           <img
