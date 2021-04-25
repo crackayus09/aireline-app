@@ -1,0 +1,8 @@
+@media (max-width: 768px) {  
+    .listing-margin {
+        margin: 20px 0 0 0;
+    }
+    .listing-margin ~ .listing-margin {
+        margin: 15px 0 0 0;
+    }
+}

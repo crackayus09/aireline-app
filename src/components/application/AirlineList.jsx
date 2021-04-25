@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import "../../static/css/listing.css";
+
 import { Row, Col } from "react-bootstrap";
 import { Redirect } from "react-router-dom";
 
@@ -40,7 +42,7 @@ export const AirlineList = (props) => {
   }
 
   return (
-    <Row className="m-3 bg-info">
+    <Row className="listing-margin bg-info">
       <Col xs="3" className="text-center m-auto">
         {AirLineName}
       </Col>
