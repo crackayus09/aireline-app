@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Jumbotron } from "react-bootstrap";
 
 import { CommonContainer } from "../commons";
 import { LoginContainer } from ".";
@@ -52,6 +52,16 @@ export const LoginPage = () => {
             </Button>
           </Form>
         </LoginContainer>
+        <Jumbotron className="mt-5 text-center">
+          <div>
+            <span className="font-weight-bold text-primary">User Name: </span>
+            <span className="font-italic">admin@demo.com</span>
+          </div>
+          <div>
+            <span className="font-weight-bold text-danger">Password: </span>
+            <span className="font-italic">admin</span>
+          </div>
+        </Jumbotron>
       </CommonContainer>
     </>
   );

@@ -25,16 +25,16 @@ export const FlightBooking = (props) => {
         <Row className="justify-content-center mt-2">
           <Col xs="12" md="6" lg="4" className="text-center">
             Your flight from{" "}
-            <b>{flightInfo[0]["DepartureAirportLocationCode"]}</b> -{" "}
-            <b>
+            <span className="font-weight-bold">{flightInfo[0]["DepartureAirportLocationCode"]}</span> -{" "}
+            <span className="font-weight-bold">
               {flightInfo[flightInfoLength - 1]["ArrivalAirportLocationCode"]}
-            </b>{" "}
+            </span>{" "}
             on{" "}
-            <b>
+            <span className="font-weight-bold">
               <Moment format="DD MMMM YYYY">
                 {flightInfo[0]["DepartureDateTime"]}
               </Moment>
-            </b>{" "}
+            </span>{" "}
             is confirmed.
           </Col>
         </Row>
