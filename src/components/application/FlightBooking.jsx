@@ -2,11 +2,21 @@ import React from "react";
 
 import { Col, Row, Button } from "react-bootstrap";
 import Moment from "react-moment";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 import { CommonContainer } from "../commons";
 
 export const FlightBooking = (props) => {
+  if (!props.location.state || !("item" in props.location.state)) {
+    return (
+      <Redirect
+        to={{
+          pathname: "/",
+        }}
+      />
+    );
+  }
+
   const { flightInfo, flightInfoLength } = props.location.state.item;
 
   return (
