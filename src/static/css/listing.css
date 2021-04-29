@@ -1,3 +1,6 @@
+.listing-margin {
+    margin-right: 0;
+}
 .listing-margin ~ .listing-margin {
     margin-top: 10px;
 }
