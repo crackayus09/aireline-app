@@ -1,3 +1,6 @@
+.listing-margin ~ .listing-margin {
+    margin-top: 10px;
+}
 @media (max-width: 768px) {  
     .listing-margin {
         margin: 20px 0 0 0;

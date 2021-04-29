@@ -94,6 +94,8 @@ export const AirlineList = (props) => {
         xs="3"
         md="2"
         className="bg-secondary text-center d-flex"
+
+        style={{cursor: "pointer"}}
         onClick={() => {
           handleBooking({ flightInfo, flightInfoLength });
         }}
