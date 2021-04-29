@@ -39,7 +39,7 @@ export const CommonNav = () => {
       </Link>
       <Navbar.Collapse className="justify-content-end">
         {loginStatus ? (
-          <Button variant="danger" onClick={handleLogout}>
+          <Button variant="warning" onClick={handleLogout}>
             Logout
           </Button>
         ) : (
