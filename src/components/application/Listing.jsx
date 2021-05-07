@@ -3,10 +3,8 @@ import React, { useState, useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
 
 import { CommonContainer } from "../commons";
-
 import { AirlinesFilter, AirlinesListing } from ".";
-
-import {airlines, listing} from "../../static/json";
+import { airlines, listing } from "../../static/json";
 
 export const Listing = () => {
   const [actualListing, setActualListing] = useState({});
